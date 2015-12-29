@@ -22,7 +22,7 @@ namespace KCK3.EditWindows
         public SendingEmail()
         {
             InitializeComponent();
-            adresyEmail.ItemsSource = repozytorium.repozytorium.listPracownikow;
+            Adresy.ItemsSource = repozytorium.repozytorium.listPracownikow;
 
         }
 
@@ -62,9 +62,19 @@ namespace KCK3.EditWindows
         {
             bool IsVisibleAdresy = Adresy.Visibility == System.Windows.Visibility.Visible ? true : false;
             if (IsVisibleAdresy)
-            Adresy.Visibility = System.Windows.Visibility.Collapsed;
+                Adresy.Visibility = System.Windows.Visibility.Collapsed;
             else
-            Adresy.Visibility = System.Windows.Visibility.Visible;
+                Adresy.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Czy chcesz anulować maila?", " Potwierdzenie", MessageBoxButton.YesNo);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Mail został zapisany!", " Potwierdzenie", MessageBoxButton.OK);
         }
     }
 }

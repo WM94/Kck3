@@ -113,6 +113,7 @@
                             <c:AddButton Action="AddFaktura" ></c:AddButton>
                             <c:EditButton  ></c:EditButton>
                             <c:UsunButton></c:UsunButton>
+                            <c:RefreshButton></c:RefreshButton>
                         </StackPanel>
                         
                         <Grid Grid.Row="1">
@@ -224,6 +225,7 @@
                             <c:AddButton Action="AddFaktura" ></c:AddButton>
                             <c:EditButton  ></c:EditButton>
                             <c:UsunButton></c:UsunButton>
+                            <c:RefreshButton></c:RefreshButton>
                         </StackPanel>
 
                         <Grid Grid.Row="1">
@@ -278,6 +280,7 @@
                             <c:AddButton Action="AddPracownik"></c:AddButton>
                             <c:EditButton></c:EditButton>
                             <c:UsunButton></c:UsunButton>
+                            <c:RefreshButton></c:RefreshButton>
                         </StackPanel>
                         <DataGrid Margin="3" Name="Pracownicy">
 
@@ -299,11 +302,12 @@
                                     <c:AddButton ></c:AddButton>
                                     <c:EditButton></c:EditButton>
                                     <c:UsunButton></c:UsunButton>
+                                    <c:RefreshButton></c:RefreshButton>
 
                                 </StackPanel>
                                 <Viewbox Height="250"
                          Width="250">
-                                    <Calendar  DisplayMode="Month" IsTodayHighlighted="True" SelectionMode="SingleDate">
+                                    <Calendar Margin="5"  DisplayMode="Month" IsTodayHighlighted="True" SelectionMode="SingleDate">
                                 </Calendar>
                               </Viewbox>
                             </StackPanel>
@@ -311,8 +315,8 @@
                            
                         </Grid>
 
-                        <Grid Grid.Column="1">
-                            <DataGrid Name="Wydarzenia"></DataGrid>
+                        <Grid Margin="10" Grid.Column="1">
+                            <DataGrid Margin="10" Name="Wydarzenia"></DataGrid>
                         </Grid>
 
 
@@ -323,7 +327,7 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"> </ColumnDefinition>
+                            <ColumnDefinition Width="0.8*"> </ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         
@@ -426,32 +430,35 @@ Storyboard.TargetProperty="Background.(SolidColorBrush.Opacity)">
                             
                             <StackPanel Orientation="Vertical">
 
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="5" Orientation="Horizontal">
                                     <c:AddButton Action="AddMail" ></c:AddButton>
                                     <c:UsunButton></c:UsunButton>
+                                    <c:RefreshButton></c:RefreshButton>
 
                                 </StackPanel>
                            
                                 
-                            <ListBox  Name="ListEmail">
+                            <ListBox Margin="5" Name="ListEmail">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
+                                            <Border BorderThickness="0 0 0 1" BorderBrush="#FFD1D1BB" >
                                         <Grid>
                                             <Grid.RowDefinitions>
-                                                <RowDefinition />
+                                                <RowDefinition  />
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
 
                                             <DockPanel Margin="3">
-                                                <TextBlock Margin="3"  HorizontalAlignment="Left" Text="{Binding Nadawca}">  </TextBlock>
-                                                <TextBlock Margin="3" HorizontalAlignment="Right" Text="{Binding DataOtrzymania}"></TextBlock>
+                                                <TextBlock Margin="10"  HorizontalAlignment="Left" Text="{Binding Nadawca}">  </TextBlock>
+                                                <TextBlock Margin="10" HorizontalAlignment="Right" Text="{Binding DataOtrzymania}"></TextBlock>
                                             </DockPanel>
                                             
-                                            <TextBlock Margin="3" Grid.Row="1" Text="{Binding Tytuł}">
+                                            <TextBlock Margin="10" Grid.Row="1" Text="{Binding Tytuł}">
                                                 
                                             </TextBlock>
                                         </Grid>
-                                    </DataTemplate>
+                                            </Border>
+                                        </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
                                 
@@ -466,21 +473,27 @@ Storyboard.TargetProperty="Background.(SolidColorBrush.Opacity)">
                             </Grid.RowDefinitions>
                             
                             <DockPanel  Margin="10">
-                                <TextBlock>
+                                <Border BorderThickness="0 0 0 1" BorderBrush="#FFD1D1BB">
+                                    <TextBlock Padding="10" FontSize="18">
                                 <Run Text=" Od :  "/><Run Text="{Binding Nadawca}"/>
-                                </TextBlock>
+                                    </TextBlock>
+                                </Border>
 
                             </DockPanel>
 
                             <DockPanel Grid.Row="1" Margin="10">
-                                <TextBlock>
+                                <Border BorderThickness="0 0 0 1" BorderBrush="#FFD1D1BB">
+                                    
+                                
+                                <TextBlock Padding="10" FontSize="18">
                                 <Run Text=" Tytuł :  "/><Run Text="{Binding Tytuł}"/>
                                 </TextBlock>
+                                </Border>
 
                             </DockPanel>
 
 
-                            <TextBlock Margin="10 15 10 10"  Grid.Row="2" Text="{Binding Zawartosc}"></TextBlock>
+                            <TextBlock Padding="10" FontSize="16" Margin="10 15 10 10"  Grid.Row="2" Text="{Binding Zawartosc}"></TextBlock>
                             
                         </Grid>
                         

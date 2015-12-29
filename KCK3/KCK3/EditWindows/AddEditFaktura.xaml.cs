@@ -23,5 +23,17 @@ namespace KCK3.EditWindows
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           /// MessageBox.Show("Czy chcesz wysłać maila?", " Potwierdzenie", MessageBoxButton.YesNo);
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Czy chcesz anulać?", " Potwierdzenie", MessageBoxButton.YesNo);
+
+        }
     }
 }

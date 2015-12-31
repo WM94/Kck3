@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:c="clr-namespace:KCK3.UserControl"
-        Title="MainWindow" Height="1000" Width="1500" >
+        Title="MainWindow" Height="1000" Width="1300" >
     
     <Window.Resources>
 
@@ -98,16 +98,16 @@
         
         <Grid Grid.Row="1">
             <TabControl>
-                
-           
-            <TabItem Header="Sprzedaż">
+
+
+                <TabItem Header="Sprzedaż">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
-                        
+
                         <StackPanel Grid.Row="0" Margin="5" Orientation="Horizontal">
 
                             <c:AddButton Action="AddFaktura" ></c:AddButton>
@@ -115,18 +115,18 @@
                             <c:UsunButton></c:UsunButton>
                             <c:RefreshButton></c:RefreshButton>
                         </StackPanel>
-                        
+
                         <Grid Grid.Row="1">
                             <DataGrid CanUserAddRows="False" AutoGenerateColumns="False"  CanUserDeleteRows="True"  IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="listFakturaSprzedazy">
                                 <DataGrid.Columns>
-                          
-                                 <DataGridTemplateColumn Header="">
+
+                                    <DataGridTemplateColumn Header="">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <CheckBox></CheckBox>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
-                                  </DataGridTemplateColumn>
+                                    </DataGridTemplateColumn>
                                     <DataGridTemplateColumn Header="Id">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
@@ -182,24 +182,24 @@
                                         <ColumnDefinition/>
 
                                     </Grid.ColumnDefinitions>
-                                    
-                                    <GroupBox Header="Numer faktury">
+
+                                    <GroupBox BorderThickness="0" Header="Numer faktury">
                                         <StackPanel Margin="5">
-                                            <TextBox > Wpisz numer faktury ...</TextBox>
+                                            <TextBox >...</TextBox>
                                             <Button>Szukaj</Button>
 
                                         </StackPanel>
                                     </GroupBox>
-                                    <GroupBox Grid.Column="1" Header="Imie klienta">
+                                    <GroupBox BorderThickness="0"  Grid.Column="1" Header="Imie klienta">
                                         <StackPanel>
-                                            <TextBox>Wpisz numer faktury ...</TextBox>
+                                            <TextBox> ...</TextBox>
                                             <Button>Szukaj</Button>
 
                                         </StackPanel>
                                     </GroupBox>
-                                    <GroupBox Grid.Column="2"  Header="Nazwisko klienta">
+                                    <GroupBox BorderThickness="0"  Grid.Column="2"  Header="Nazwisko klienta">
                                         <StackPanel>
-                                            <TextBox>Wpisz numer faktury ...</TextBox>
+                                            <TextBox> ...</TextBox>
                                             <Button>Szukaj</Button>
 
                                         </StackPanel>
@@ -210,7 +210,7 @@
                         </Grid>
 
                     </Grid>
-            </TabItem>
+                </TabItem>
 
                 <TabItem Header="Zakup" >
                     <Grid>
@@ -244,23 +244,23 @@
 
                                     </Grid.ColumnDefinitions>
 
-                                    <GroupBox Header="Numer faktury">
+                                    <GroupBox BorderThickness="0"  Header="Numer faktury">
                                         <StackPanel Margin="5">
-                                            <TextBox >Wpisz numer faktury ...</TextBox>
+                                            <TextBox > ...</TextBox>
                                             <Button>Szukaj</Button>
 
                                         </StackPanel>
                                     </GroupBox>
-                                    <GroupBox Grid.Column="1" Header="Imie klienta">
+                                    <GroupBox BorderThickness="0"  Grid.Column="1" Header="Imie klienta">
                                         <StackPanel>
-                                            <TextBox>Wpisz numer faktury ...</TextBox>
+                                            <TextBox> ...</TextBox>
                                             <Button>Szukaj</Button>
 
                                         </StackPanel>
                                     </GroupBox>
-                                    <GroupBox Grid.Column="2"  Header="Nazwisko klienta">
+                                    <GroupBox  BorderThickness="0" Grid.Column="2"  Header="Nazwisko klienta">
                                         <StackPanel>
-                                            <TextBox>Wpisz numer faktury ...</TextBox>
+                                            <TextBox>...</TextBox>
                                             <Button>Szukaj</Button>
 
                                         </StackPanel>
@@ -271,26 +271,94 @@
                         </Grid>
 
                     </Grid>
-                    
+
                 </TabItem>
                 <TabItem Header="Pracownicy" >
-                    <StackPanel Margin="3">
+                    <Grid>
 
-                        <StackPanel Orientation="Horizontal">
-                            <c:AddButton Action="AddPracownik"></c:AddButton>
-                            <c:EditButton></c:EditButton>
-                            <c:UsunButton></c:UsunButton>
-                            <c:RefreshButton></c:RefreshButton>
+                        <StackPanel Margin="3">
+
+                            <StackPanel Orientation="Horizontal">
+                                <c:AddButton Action="AddPracownik"></c:AddButton>
+                                <c:EditButton></c:EditButton>
+                                <c:UsunButton></c:UsunButton>
+                                <c:RefreshButton></c:RefreshButton>
+                            </StackPanel>
+                            <DataGrid Margin="3" Name="Pracownicy">
+
+                            </DataGrid>
                         </StackPanel>
-                        <DataGrid Margin="3" Name="Pracownicy">
 
-                        </DataGrid>
-                    </StackPanel>
-                    
-                  
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Notatnik">
+
+
+
+                    <Grid Margin="10">
+
+                        <Grid.Resources >
+                            <Style x:Key="GridNote" TargetType="Grid">
+                                <Setter Property="Height" Value="260"></Setter>
+                                <Setter Property="Width" Value="220"></Setter>
+                            </Style>
+                        </Grid.Resources>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <WrapPanel Margin="5"  >
+                            <c:AddButton Action="AddNotatka"></c:AddButton>
+
+                        </WrapPanel>
+
+                        <WrapPanel Name="NotatkaContainer" Margin="10" Grid.Row="1">
+
+                            <!--<Grid  Style="{StaticResource GridNote }" Background="Yellow"   Margin="5"   Opacity="1">
+                                <Grid.Resources>
+                                    <Style x:Key="TextBoxStyle1" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                        <Setter Property="Padding" Value="1"/>
+                                        <Setter Property="AllowDrop" Value="true"/>
+                                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                                    <Border x:Name="bg" BorderBrush="Gray" BorderThickness="0.5">
+                                                        <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="BorderBrush" TargetName="bg" Value="DarkBlue"/>
+                                                            <Setter Property="BorderThickness" TargetName="bg" Value="1"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsFocused" Value="True">
+                                                            <Setter Property="BorderBrush" TargetName="bg" Value="DarkBlue"/>
+                                                            <Setter Property="Background"   Value="Transparent"/>
+                                                            
+                                                        </Trigger>
+
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Grid.Resources>
+
+                                <TextBox  Style="{StaticResource TextBoxStyle1}"  Margin="3" Background="Yellow"   Padding="20" Name="textNotatka" Foreground="Black">
+                                     
+                                </TextBox>
+
+                            </Grid>-->
+                        </WrapPanel>
+
+                    </Grid>
+
                 </TabItem>
                 <TabItem Header="Kalendarz" >
-                    
+
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -308,11 +376,11 @@
                                 <Viewbox Height="250"
                          Width="250">
                                     <Calendar Margin="5"  DisplayMode="Month" IsTodayHighlighted="True" SelectionMode="SingleDate">
-                                </Calendar>
-                              </Viewbox>
+                                    </Calendar>
+                                </Viewbox>
                             </StackPanel>
-                          
-                           
+
+
                         </Grid>
 
                         <Grid Margin="10" Grid.Column="1">
@@ -323,28 +391,28 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Skrzynka Mailowa" >
-                    
+
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="0.8*"> </ColumnDefinition>
+                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        
-                        
-                        
+
+
+
                         <Grid>
-                            
+
                             <Grid.Resources>
                                 <Style TargetType="TreeViewItem">
-                                
+
                                     <Setter Property="FontSize" Value="13"></Setter>
 
-         
-                                    
+
+
                                 </Style>
-                                
-                                
+
+
                             </Grid.Resources>
                             <TreeView Margin="5 10 10 5">
 
@@ -358,13 +426,13 @@
                                     <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}"
                       Color="Black" />
                                 </TreeView.Resources>
-                                
+
                                 <TreeViewItem Margin="3 5 9 0" Header="Poczta" IsExpanded="True">
 
 
                                     <TreeViewItem.ItemContainerStyle>
                                         <Style TargetType="TreeViewItem">
-                                          <Setter Property="Margin" Value="6"></Setter>
+                                            <Setter Property="Margin" Value="6"></Setter>
                                             <Style.Triggers>
                                                 <Trigger Property="IsSelected" Value="True">
                                                     <Setter Property="FontWeight" Value="Bold"/>
@@ -372,10 +440,10 @@
                                                        <Setter Property="Foreground" Value="Green"/>-->
 
                                                 </Trigger>
-                                                
+
                                                 <Trigger Property="IsMouseOver"  Value="True">
-                                                    
-                                                   <Setter Property="Background" Value="{DynamicResource Brush01}"></Setter>
+
+                                                    <Setter Property="Background" Value="{DynamicResource Brush01}"></Setter>
                                                     <Setter Property="Foreground" Value="Blue"/>
 
                                                 </Trigger>
@@ -403,17 +471,17 @@ Storyboard.TargetProperty="Background.(SolidColorBrush.Opacity)">
                                                         </BeginStoryboard>
                                                     </DataTrigger.ExitActions>
                                                 </DataTrigger>-->
-                                                
+
                                             </Style.Triggers>
-                                          
-                                        
-                                           
+
+
+
                                         </Style>
                                     </TreeViewItem.ItemContainerStyle>
 
                                     <TreeViewItem Margin="5 7 5 5 "  Padding="4"   Header="Odebrane" />
                                     <TreeViewItem Margin="5" Padding="4"   Header="Archiwum" IsExpanded="True">
-                                    
+
                                     </TreeViewItem>
                                     <TreeViewItem Margin="5"  Padding="4" Header="Spam" />
                                     <TreeViewItem Margin="5"  Padding="4"  Header="Wersje robocze" />
@@ -422,12 +490,12 @@ Storyboard.TargetProperty="Background.(SolidColorBrush.Opacity)">
                                 </TreeViewItem>
 
 
-                                
+
                             </TreeView>
 
                         </Grid>
                         <Grid  Margin="15" Grid.Column="1">
-                            
+
                             <StackPanel Orientation="Vertical">
 
                                 <StackPanel Margin="5" Orientation="Horizontal">
@@ -436,42 +504,42 @@ Storyboard.TargetProperty="Background.(SolidColorBrush.Opacity)">
                                     <c:RefreshButton></c:RefreshButton>
 
                                 </StackPanel>
-                           
-                                
-                            <ListBox Margin="5" Name="ListEmail">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                            <Border BorderThickness="0 0 0 1" BorderBrush="#FFD1D1BB" >
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition  />
-                                                <RowDefinition/>
-                                            </Grid.RowDefinitions>
 
-                                            <DockPanel Margin="3">
-                                                <TextBlock Margin="10"  HorizontalAlignment="Left" Text="{Binding Nadawca}">  </TextBlock>
-                                                <TextBlock Margin="10" HorizontalAlignment="Right" Text="{Binding DataOtrzymania}"></TextBlock>
-                                            </DockPanel>
-                                            
-                                            <TextBlock Margin="10" Grid.Row="1" Text="{Binding Tytuł}">
-                                                
-                                            </TextBlock>
-                                        </Grid>
+
+                                <ListBox Margin="5" Name="ListEmail">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderThickness="0 0 0 1" BorderBrush="#FFD1D1BB" >
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition  />
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <DockPanel Margin="3">
+                                                        <TextBlock Margin="10"  HorizontalAlignment="Left" Text="{Binding Nadawca}"></TextBlock>
+                                                        <TextBlock Margin="10" HorizontalAlignment="Right" Text="{Binding DataOtrzymania}"></TextBlock>
+                                                    </DockPanel>
+
+                                                    <TextBlock Margin="10" Grid.Row="1" Text="{Binding Tytuł}">
+
+                                                    </TextBlock>
+                                                </Grid>
                                             </Border>
                                         </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                                
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
                             </StackPanel>
                         </Grid>
-                        
+
                         <Grid DataContext="{Binding ElementName=ListEmail , Path=SelectedItem}" Margin="15" Grid.Column="2">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            
+
                             <DockPanel  Margin="10">
                                 <Border BorderThickness="0 0 0 1" BorderBrush="#FFD1D1BB">
                                     <TextBlock Padding="10" FontSize="18">
@@ -483,25 +551,304 @@ Storyboard.TargetProperty="Background.(SolidColorBrush.Opacity)">
 
                             <DockPanel Grid.Row="1" Margin="10">
                                 <Border BorderThickness="0 0 0 1" BorderBrush="#FFD1D1BB">
-                                    
-                                
-                                <TextBlock Padding="10" FontSize="18">
+
+
+                                    <TextBlock Padding="10" FontSize="18">
                                 <Run Text=" Tytuł :  "/><Run Text="{Binding Tytuł}"/>
-                                </TextBlock>
+                                    </TextBlock>
                                 </Border>
 
                             </DockPanel>
 
 
                             <TextBlock Padding="10" FontSize="16" Margin="10 15 10 10"  Grid.Row="2" Text="{Binding Zawartosc}"></TextBlock>
-                            
+
                         </Grid>
+
+                    </Grid>
+
+
+
+                </TabItem>
+
+                <TabItem Header="Ustawienia">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+
+
+                        <Grid>
+
+                            <Grid.Resources>
+                                <Style TargetType="TreeViewItem">
+
+                                    <Setter Property="FontSize" Value="13"></Setter>
+
+
+
+                                </Style>
+
+
+                            </Grid.Resources>
+                            <TreeView Margin="5 10 10 5">
+
+                                <TreeView.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                      Color="Transparent" />
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}"
+                      Color="Black" />
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}"
+                      Color="Transparent" />
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}"
+                      Color="Black" />
+                                </TreeView.Resources>
+
+                                <TreeViewItem Margin="3 5 9 0" Header="Ogólne" IsExpanded="True">
+
+
+                                    <TreeViewItem.ItemContainerStyle>
+                                        <Style TargetType="TreeViewItem">
+                                            <Setter Property="Margin" Value="6"></Setter>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                    <!--<Setter Property="Background" Value="Transparent"></Setter>
+                                                       <Setter Property="Foreground" Value="Green"/>-->
+
+                                                </Trigger>
+
+                                                <Trigger Property="IsMouseOver"  Value="True">
+
+                                                    <Setter Property="Background" Value="{DynamicResource Brush01}"></Setter>
+                                                    <Setter Property="Foreground" Value="Blue"/>
+
+                                                </Trigger>
+
+         
+                                            </Style.Triggers>
+
+
+
+                                        </Style>
+                                    </TreeViewItem.ItemContainerStyle>
+
+                                    <TreeViewItem Margin="5 7 7 5 "  Selected="TreeViewItem_Selected" Padding="4"   Header="Język" />
+                                    <TreeViewItem Margin="5 7 7 5 "  Selected="TreeViewItem_Selected_1" Padding="4"   Header="Wygląd" />
+                                    <TreeViewItem Margin="5 7 7 5 "  Selected="TreeViewItem_Selected_4" Padding="4"   Header="Powiadomienia" />
+                                    <TreeViewItem Margin="5 7 7 5 "  Selected="TreeViewItem_Selected_2" Padding="4"   Header="Moje Konto" />
+                                    <!--<TreeViewItem Margin="5 7 7 5 "  Selected="TreeViewItem_Selected_3" Padding="4"   Header="Konto Email" />-->
+                                   
+
+                                </TreeViewItem>
+                               
+
+
+
+                            </TreeView>
+
+                        </Grid>
+                        <Grid Name="UstawieniaContainer"  Margin="15" Grid.Column="1">
+                            
+                            <Grid Name="Jezyk" Canvas.ZIndex="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                
+                                
+                                <WrapPanel>
+                                <WrapPanel Name="BJezyk" >
+                                        <GroupBox BorderThickness="0" Margin="5"  Name="WJezyk" Header="Wybór Języka">
+                                    
+                               
+                                <ListBox Margin="10" Padding="5" Width="150" Height="250">
+                                    <ListBoxItem >
+                                        <Grid >                                            
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <RadioButton IsChecked="True" Name="A"  GroupName="Os" VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></RadioButton>
+                                            <Label Grid.Column="1" VerticalAlignment="Center" >Polski</Label>
+                                        </Grid>                                    
+                                    </ListBoxItem>
+                                    <ListBoxItem >
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <RadioButton Name="B" GroupName="Os"  VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></RadioButton>
+                                            <Label Grid.Column="1" VerticalAlignment="Center" >Polski</Label>
+                                        </Grid>
+                                    </ListBoxItem>
+                                    <ListBoxItem >
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <RadioButton GroupName="Os"  VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></RadioButton>
+                                            <Label Grid.Column="1" VerticalAlignment="Center" >Angielski</Label>
+                                        </Grid>
+                                    </ListBoxItem>
+                                    <ListBoxItem >
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <RadioButton  GroupName="Os"  VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></RadioButton>
+                                            <Label Grid.Column="1" VerticalAlignment="Center" >Niemiecki</Label>
+                                        </Grid>
+                                    </ListBoxItem>
+                                    <ListBoxItem >
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <RadioButton GroupName="Os"  VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></RadioButton>
+                                            <Label Grid.Column="1" VerticalAlignment="Center" >Rosyjski</Label>
+                                        </Grid>
+                                    </ListBoxItem>
+                                    <ListBoxItem >
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <RadioButton  GroupName="Os"  VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></RadioButton>
+                                            <Label Grid.Column="1" VerticalAlignment="Center" >Chiński</Label>
+                                        </Grid>
+                                    </ListBoxItem>
+                                </ListBox>
+                                </GroupBox>
+                                    </WrapPanel>
+                                    
+                                    <WrapPanel Name="BWyglad" >
+                                        <GroupBox BorderThickness="0" Margin="5" Name="WWyglad" Header="Wygląd">
+
+
+                                            <ListBox Margin="10" Padding="5" Width="150" Height="250">
+                                                <ListBoxItem >
+                                                    <Grid >
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="auto"/>
+                                                            <ColumnDefinition Width="auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <RadioButton IsChecked="True"  GroupName="Oss" VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></RadioButton>
+                                                        <Label Grid.Column="1" VerticalAlignment="Center" >Jasny</Label>
+                                                    </Grid>
+                                                </ListBoxItem>
+                                                <ListBoxItem >
+                                                    <Grid >
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="auto"/>
+                                                            <ColumnDefinition Width="auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <RadioButton  GroupName="Oss"  VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></RadioButton>
+                                                        <Label Grid.Column="1" VerticalAlignment="Center" >Ciemny</Label>
+                                                    </Grid>
+                                                </ListBoxItem>
+                                                
+                                            </ListBox>
+                                        </GroupBox>
+                                    </WrapPanel>
+
+                                    <WrapPanel Name="BPowiadomienia">
+                                        <GroupBox  BorderThickness="0" Margin="5"  Header="Powiadomienia">
+
+
+                                            <ListBox Margin="10" Padding="5" Width="350" Height="250">
+                                                <ListBoxItem >
+                                                    <Grid >
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="auto"/>
+                                                            <ColumnDefinition Width="auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <CheckBox IsChecked=""   VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></CheckBox>
+                                                        <Label Grid.Column="1" VerticalAlignment="Center" Content=" Pozwól wyświetlać powiadomienia  &#10; o przychodzących mailach"/>
+                                                    </Grid>
+                                                </ListBoxItem>
+                                                <ListBoxItem >
+                                                    <Grid >
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="auto"/>
+                                                            <ColumnDefinition Width="auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <CheckBox    VerticalContentAlignment="Center" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center" ></CheckBox>
+                                                        <Label Grid.Column="1" VerticalAlignment="Center" Content=" Pozwól wyświetlać powiadomienia  &#10; o nadchodzących wydarzeniach z kalendarza"/>
+                                                    </Grid>
+                                                </ListBoxItem>
+
+                                            </ListBox>
+                                        </GroupBox>
+                                    </WrapPanel>
+
+                                    <WrapPanel Name="BKonto" >
+                                        <GroupBox BorderThickness="0"   Margin="5"  Header="Moje Konto">
+                                            <Grid  Margin="5">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label HorizontalAlignment="Right" Content="Login :"/>
+                                                <Label HorizontalAlignment="Right" Grid.Row="1" Content="Hasło :"/>
+                                                <Label HorizontalAlignment="Right"  Grid.Row="2" Content="Powtórz hasło :"/>
+
+                                                <TextBox  Margin="3" Width="100" Grid.Column="1" Grid.Row="0"/>
+                                                <PasswordBox BorderBrush="DarkGray" BorderThickness="0.5" Margin="3" Width="100" Grid.Column="1" Grid.Row="1"/>
+                                                <PasswordBox BorderBrush="Black" BorderThickness="0.5"  Margin="3" Width="100" Grid.Column="1" Grid.Row="2"/>
+
+                                                <Button Margin="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="3" Content="Zapisz nowe hasło" Click="Button_Click"/>
+
+                                            </Grid>
+
+
+
+
+                                        </GroupBox>
+                                    </WrapPanel>
+                                </WrapPanel>
+                            </Grid>
+
+                            <Grid Name="Wyglad" Canvas.ZIndex="2">
+                                <Label >sssssss</Label>
+                            </Grid>
+
+                            <Grid Name="MojeKonto" Canvas.ZIndex="3">
+                                <Label >ddddddddd</Label>
+                            </Grid>
+
+                            <Grid Name="KontoEmail" Canvas.ZIndex="4">
+                                <Label >fffffffffffff</Label>
+                            </Grid>
+
+                            <Grid Name="Powiadomienia" Canvas.ZIndex="5">
+                                <Label >ggggggggggg</Label>
+                            </Grid>
+
+
+                        </Grid>
+
                         
                     </Grid>
-                    
-                    
-                    
-                </TabItem>
+
+
+                </TabItem >
             </TabControl>
         </Grid>
 

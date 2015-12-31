@@ -921,8 +921,14 @@
   <Style BasedOn="{StaticResource ScrollViewerStyle}" TargetType="{x:Type ScrollViewer}" />
   <Style BasedOn="{StaticResource ComboBoxStyle}" TargetType="{x:Type ComboBox}" />
   <Style BasedOn="{StaticResource ComboBoxItemStyle}" TargetType="{x:Type ComboBoxItem}" />
-  <Style BasedOn="{StaticResource TextBoxStyle}" TargetType="{x:Type TextBox}" />
-  <Style BasedOn="{StaticResource ListBoxStyle}" TargetType="{x:Type ListBox}" />
+  <Style BasedOn="{StaticResource TextBoxStyle}" TargetType="{x:Type TextBox}" >
+        <Setter Property="SelectionBrush">
+            <Setter.Value>
+                <ImageBrush/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource ListBoxStyle}" TargetType="{x:Type ListBox}" />
   <Style BasedOn="{StaticResource ListBoxItemStyle}" TargetType="{x:Type ListBoxItem}" />
   <Style BasedOn="{StaticResource CheckBoxStyle}" TargetType="CheckBox">
     <!-- Adding setter for VerticalContentAlignment to target default behavior of MS check box. -->

@@ -63,6 +63,17 @@ namespace KCK3.UserControl
                 AddEditPracownik wind = new AddEditPracownik();
                 wind.ShowDialog();
             }
+
+            if (Action == "AddNotatka")
+            {
+                MainWindow.instance.addNotatka();
+            }
+
+
+         
+
+  
+            
  
 
         }

@@ -81,6 +81,9 @@
       <DependentUpon>ProgresBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="repozytorium\repozytorium.cs" />
+    <Compile Include="UserControl\Notatka.xaml.cs">
+      <DependentUpon>Notatka.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\RefreshButton.xaml.cs">
       <DependentUpon>RefreshButton.xaml</DependentUpon>
     </Compile>
@@ -185,6 +188,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Notatka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\RefreshButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -242,6 +249,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\note.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

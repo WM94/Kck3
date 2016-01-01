@@ -41,6 +41,7 @@ namespace KCK3.UserControl
         public AddButton()
         {
             InitializeComponent();
+        
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -55,18 +56,47 @@ namespace KCK3.UserControl
             if (Action == "AddFaktura")
             {
                 AddEditFaktura wind = new AddEditFaktura();
-                wind.ShowDialog();
+                if( wind.ShowDialog().Value)
+                {
+                    MainWindow.instance.clear();
+                   repozytorium.repozytorium.listFakturaSprzedazy.Add(wind.faktura);
+                    MainWindow.instance.refresh( );
+                }
+                
+            }
+
+            if (Action == "AddFakturaZ")
+            {
+                AddEditFaktura wind = new AddEditFaktura();
+                if (wind.ShowDialog().Value)
+                {
+                    MainWindow.instance.clear();
+                    repozytorium.repozytorium.listFakturaZakupu.Add(wind.faktura);
+                    MainWindow.instance.refresh();
+                }
+
             }
 
             if (Action == "AddPracownik")
             {
                 AddEditPracownik wind = new AddEditPracownik();
-                wind.ShowDialog();
+                if (wind.ShowDialog().Value)
+                {
+                    MainWindow.instance.clear();
+                    repozytorium.repozytorium.listPracownikow.Add(wind.pracownik);
+                    MainWindow.instance.refresh();
+                }
             }
 
             if (Action == "AddNotatka")
             {
                 MainWindow.instance.addNotatka();
+            }
+
+            if (Action == "AddWydarzenie")
+            {
+                AddWydarzenie temp = new AddWydarzenie();
+                temp.ShowDialog();
             }
 
 

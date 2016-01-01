@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KCK3._class;
+using KCK3.EditWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,20 @@ namespace KCK3.UserControl
     /// </summary>
     public partial class EditButton 
     {
+        public static readonly DependencyProperty action = DependencyProperty.Register
+   (
+        "Action",
+        typeof(string),
+        typeof(EditButton),
+        new PropertyMetadata(string.Empty)
+   );
+
+        public string Action
+        {
+            get { return (string)GetValue(action); }
+            set { SetValue(action, value); }
+        }
+
         public EditButton()
         {
             InitializeComponent();
@@ -27,9 +43,72 @@ namespace KCK3.UserControl
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            EditWindows.AddEditPracownik window = new EditWindows.AddEditPracownik();
+            if (Action == "AddMail")
+            {
+                SendingEmail wind = new SendingEmail();
+                wind.ShowDialog();
+            }
 
-            window.Show();
+            if (Action == "AddFaktura")
+            {
+                var temp = MainWindow.instance.listFakturaSprzedazy.SelectedItem as Faktura;
+                if (temp == null) { MessageBox.Show("Brak zaznaczonej pozycji"); return; }
+                AddEditFaktura wind = new AddEditFaktura(temp);
+                if (wind.ShowDialog().Value)
+                {
+                    //////temp = wind.faktura;
+                    ////MainWindow.instance.clear();
+                    //repozytorium.repozytorium.listFakturaSprzedazy.Add(wind.faktura);
+                    ///// MainWindow.instance.refresh();
+                }
+
+            }
+
+            if (Action == "AddFakturaZ")
+            {
+                var temp = MainWindow.instance.listFakturaZakupu.SelectedItem as Faktura;
+                if (temp == null) { MessageBox.Show("Brak zaznaczonej pozycji"); return; }
+                AddEditFaktura wind = new AddEditFaktura(temp);
+                if (wind.ShowDialog().Value)
+                {
+                   // MainWindow.instance.clear();
+                   /// repozytorium.repozytorium.listFakturaZakupu.Add(wind.faktura);
+                   //// MainWindow.instance.refresh();
+                }
+
+            }
+
+            if (Action == "AddPracownik")
+            {
+                var temp = MainWindow.instance.Pracownicy.SelectedItem as Pracownik;
+                if (temp == null) { MessageBox.Show("Brak zaznaczonej pozycji"); return; }
+                AddEditPracownik wind = new AddEditPracownik(temp);
+                if (wind.ShowDialog().Value)
+                {
+                   /// MainWindow.instance.clear();
+                   /// repozytorium.repozytorium.listPracownikow.Add(wind.pracownik);
+                    ///MainWindow.instance.refresh();
+                }
+            }
+
+            if (Action == "AddNotatka")
+            {
+               // MainWindow.instance.addNotatka();
+            }
+
+            if (Action == "AddWydarzenie")
+            {
+                //var temp = MainWindow.instance.listFakturaZakupu.SelectedItem as Faktura;
+                //if (temp == null) { MessageBox.Show("Brak zaznaczonej pozycji"); return; }
+                //AddWydarzenie wind = new AddWydarzenie(temp);
+                //if (wind.ShowDialog().Value)
+                //{
+                //    MainWindow.instance.clear();
+                //    repozytorium.repozytorium.listFakturaZakupu.Add(wind.faktura);
+                //    MainWindow.instance.refresh();
+                //}
+            }
+ 
         }
     }
 }

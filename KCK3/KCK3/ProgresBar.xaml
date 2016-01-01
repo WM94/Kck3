@@ -6,6 +6,6 @@
         WindowStartupLocation="CenterScreen">
  
     <Grid Background="Red">
-        <ProgressBar Name="progresBar" Visibility="Visible" IsIndeterminate="False" Value="-1">  </ProgressBar>
+        <ProgressBar Name="progresBar"  Minimum="0" Maximum="100" Visibility="Visible" IsIndeterminate="False" Value="-1">  </ProgressBar>
     </Grid>
 </Window>

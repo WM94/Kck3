@@ -111,7 +111,7 @@
                         <StackPanel Grid.Row="0" Margin="5" Orientation="Horizontal">
 
                             <c:AddButton Action="AddFaktura" ></c:AddButton>
-                            <c:EditButton  ></c:EditButton>
+                            <c:EditButton Action="AddFaktura"  ></c:EditButton>
                             <c:UsunButton></c:UsunButton>
                             <c:RefreshButton></c:RefreshButton>
                         </StackPanel>
@@ -222,8 +222,8 @@
 
                         <StackPanel Grid.Row="0" Margin="5" Orientation="Horizontal">
 
-                            <c:AddButton Action="AddFaktura" ></c:AddButton>
-                            <c:EditButton  ></c:EditButton>
+                            <c:AddButton Action="AddFakturaZ" ></c:AddButton>
+                            <c:EditButton Action="AddFakturaZ"  ></c:EditButton>
                             <c:UsunButton></c:UsunButton>
                             <c:RefreshButton></c:RefreshButton>
                         </StackPanel>
@@ -280,7 +280,7 @@
 
                             <StackPanel Orientation="Horizontal">
                                 <c:AddButton Action="AddPracownik"></c:AddButton>
-                                <c:EditButton></c:EditButton>
+                                <c:EditButton Action="AddPracownik" ></c:EditButton>
                                 <c:UsunButton></c:UsunButton>
                                 <c:RefreshButton></c:RefreshButton>
                             </StackPanel>
@@ -367,8 +367,8 @@
                         <Grid Grid.Column="0">
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
-                                    <c:AddButton ></c:AddButton>
-                                    <c:EditButton></c:EditButton>
+                                    <c:AddButton Action="AddWydarzenie" ></c:AddButton>
+                                    <c:EditButton  Action="AddWydarzenie"  ></c:EditButton>
                                     <c:UsunButton></c:UsunButton>
                                     <c:RefreshButton></c:RefreshButton>
 

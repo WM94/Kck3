@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KCK3._class
 {
-    public class Faktura
+    public class Faktura : ICloneable
     {
         public int id { get; set; }
         public string Numer { get; set; }
@@ -18,5 +18,10 @@ namespace KCK3._class
         public string Nazwisko_Klienta { get; set; }
 
 
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

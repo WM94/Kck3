@@ -52,6 +52,23 @@ namespace KCK3
             pr = BJezyk;
         }
 
+        public void clear()
+        {
+            listFakturaSprzedazy.ItemsSource = null;
+            Wydarzenia.ItemsSource = null;
+            ListEmail.ItemsSource = null;
+            Pracownicy.ItemsSource = null;
+            listFakturaZakupu.ItemsSource = null;
+        }
+        public void refresh()
+        {
+            listFakturaSprzedazy.ItemsSource = repozytorium.repozytorium.listFakturaSprzedazy;
+            Wydarzenia.ItemsSource = repozytorium.repozytorium.listWydarzenia;
+            ListEmail.ItemsSource = repozytorium.repozytorium.listEmail;
+            Pracownicy.ItemsSource = repozytorium.repozytorium.listPracownikow;
+            listFakturaZakupu.ItemsSource = repozytorium.repozytorium.listFakturaZakupu;
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             Data.Content = DateTime.Now.ToString();
@@ -142,6 +159,11 @@ namespace KCK3
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Zapisano!");
+        }
+
+        private void AddButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
   
     }

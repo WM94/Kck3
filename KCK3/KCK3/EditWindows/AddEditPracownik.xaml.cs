@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KCK3._class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,24 @@ namespace KCK3.EditWindows
     /// </summary>
     public partial class AddEditPracownik : Window
     {
-        public AddEditPracownik()
+        public Pracownik pracownik { set; get; }
+        public AddEditPracownik(Pracownik prac =null)
         {
+            pracownik = prac == null ? new Pracownik() : prac;
             InitializeComponent();
+            this.DataContext = pracownik;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult rez = MessageBox.Show("Czy chcesz anulać?", " Potwierdzenie", MessageBoxButton.YesNo);
+            if (rez == MessageBoxResult.Yes) this.Close();
         }
     }
 }
